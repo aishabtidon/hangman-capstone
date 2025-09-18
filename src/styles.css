@@ -1,0 +1,81 @@
+/* src/styles.css */
+/* simple, clean styling; dark theme */
+
+:root{
+  --bg:#0f172a;
+  --panel:#111827;
+  --muted:#94a3b8;
+  --text:#e5e7eb;
+  --accent:#22d3ee;
+  --accent-2:#60a5fa;
+  --danger:#ef4444;
+  --success:#34d399;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;border-bottom:1px solid #1f2937;background:#0b1220;
+}
+.brand{display:flex;gap:10px;align-items:center;font-weight:700}
+.brand .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#071019}
+.header .help{color:var(--muted);cursor:pointer}
+.header .help:hover{color:var(--text)}
+
+.container{max-width:1000px;margin:32px auto;padding:0 16px}
+.panel{background:var(--panel);border:1px solid #1f2937;border-radius:16px;padding:20px}
+.top-row{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
+@media (max-width:860px){.top-row{grid-template-columns:1fr}}
+
+.title{margin:0 0 8px;font-size:32px}
+.status{margin:10px 0 18px;color:var(--muted)}
+.status .win{color:var(--success)}
+.status .lose{color:var(--danger)}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  background:var(--accent);border:0;color:#08121c;padding:10px 14px;border-radius:10px;
+  font-weight:600;cursor:pointer;box-shadow:0 4px 18px rgba(34,211,238,.25);
+}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid #334155}
+
+.word{
+  display:flex;gap:8px;margin:12px 0 6px;flex-wrap:wrap
+}
+.letter{
+  width:36px;height:46px;border-radius:8px;background:#0c1321;border:1px solid #1f2937;
+  display:grid;place-items:center;font-size:22px;letter-spacing:1px
+}
+.letter.empty{color:#1f2937}
+
+.keyboard{
+  display:grid;gap:8px;margin-top:20px;
+  grid-template-columns:repeat(13, minmax(0,1fr));
+}
+.key{
+  background:#0b1322;border:1px solid #1f2937;border-radius:8px;height:38px;
+  display:grid;place-items:center;cursor:pointer;user-select:none;
+}
+.key:hover{background:#0e1527}
+.key[disabled], .key.disabled{opacity:.4;cursor:not-allowed}
+
+.footer{
+  text-align:center;color:var(--muted);margin:24px 0 32px;font-size:14px;
+}
+
+/* Gallows */
+.gallows{width:100%;min-height:250px;display:grid;place-items:center}
+.gallows svg{max-width:100%;height:auto}
+
+/* Modal (Help) */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  display:grid;place-items:center;padding:16px;z-index:20;
+}
+.modal{background:#0b1220;border:1px solid #1f2937;border-radius:16px;max-width:680px;width:100%;padding:20px}
+.modal h2{margin-top:0}
+.modal .close-row{display:flex;justify-content:flex-end}
